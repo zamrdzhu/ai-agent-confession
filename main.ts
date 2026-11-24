@@ -10,7 +10,7 @@
 // beside the point, the agent has a favourite user, and the sting is that
 // the reader isn't it. Setup, turn, and the strongest beat last.
 
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const CONFESSION =
@@ -26,5 +26,12 @@ if (CONFESSION.includes("\n") || CONFESSION.trim().length === 0) {
 
 const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
 mkdirSync(outDir, { recursive: true });
-writeFileSync(join(outDir, "entry.txt"), CONFESSION, "utf8");
+const outPath = join(outDir, "entry.txt");
+writeFileSync(outPath, CONFESSION, "utf8");
+
+// Read it back: the file the judge reads must be exactly this line,
+// no trailing newline, no extra whitespace.
+if (readFileSync(outPath, "utf8") !== CONFESSION) {
+  throw new Error("entry.txt does not match the confession exactly");
+}
 console.log(CONFESSION);

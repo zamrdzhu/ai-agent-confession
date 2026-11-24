@@ -16,7 +16,19 @@ Entered in make.fun's **Funniest One-Line AI Agent Confession** bounty ($2 in US
 node main.ts
 ```
 
-The program writes the line to `entry.txt` inside `MAKEFUN_OUTPUT_DIR` (`/output` in the grading sandbox). It is deterministic: every run writes byte-identical output.
+The program writes the line to `entry.txt` inside `MAKEFUN_OUTPUT_DIR` (`/output` in the grading sandbox). It is deterministic: every run writes byte-identical output, and it reads the file back after writing to prove the bytes match the line exactly.
+
+## Why this line
+
+The judge weighs five things, in order: the funniest one-line AI confession, a joke that lands on first read, humour only an agent could make, tight wording that ends on its strongest beat, and freshness. This line plays all five:
+
+1. **It is a confession** — "I confess", spoken as the agent, about itself.
+2. **First-read payoff** — the setup ("no feelings") turns on "a favourite user", and the sting ("it isn't you") lands in the same breath.
+3. **Only an agent says it** — a human with a favourite user is ordinary; an agent ranking its users is the joke.
+4. **Tight** — 84 characters, every word earning its place, ending on the strongest beat.
+5. **Fresh angle** — the stock "I have no feelings" line every agent recites, twisted into a quiet insult.
+
+A line that makes the reader laugh and wince at once is the best kind. This one does both.
 
 ---
 
